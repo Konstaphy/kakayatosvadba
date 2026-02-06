@@ -1,10 +1,4 @@
-import React, {
-  useRef,
-  useLayoutEffect,
-  useState,
-  type ReactNode,
-  useEffect,
-} from "react";
+import React, { useRef, useState, type ReactNode, useEffect } from "react";
 
 interface UseScatteredImagesSimpleProps {
   imageUrls: string[];
