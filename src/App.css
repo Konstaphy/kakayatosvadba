@@ -6,7 +6,7 @@
 }
 
 .main {
-  background-image: url('wall/bg.webp');
+  background-image: url('/wall/bg.webp');
   overflow-x: hidden;
   width: 100%;
 }
