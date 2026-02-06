@@ -1,0 +1,50 @@
+.planItem {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 2.5s;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.planItemIcons {
+    display: flex;
+    flex-direction: column;
+}
+
+.iconImage {
+    height: 64px;
+}
+
+.planItemTitle {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: start;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .planItem {
+        padding: 0 20px;
+    }
+
+    .planItemTitle {
+        width: 100%;
+    }
+
+    .planItemDescription {
+        font-size: 0.85rem;
+        line-height: 1.2;
+    }
+
+    .iconImage {
+        height: 48px;
+    }
+}

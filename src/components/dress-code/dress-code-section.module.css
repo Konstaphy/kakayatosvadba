@@ -1,0 +1,52 @@
+.dressCode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 2.5s;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.title {
+    margin-bottom: 20px !important;
+}
+
+.text {
+    max-width: 600px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.girlsTitle {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.girlsColors {
+    margin-bottom: 40px;
+}
+
+.heartsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .text {
+        padding: 0 10px;
+    }
+    
+    .heartsContainer {
+        gap: 10px;
+    }
+}

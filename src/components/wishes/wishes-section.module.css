@@ -1,0 +1,110 @@
+.wishes {
+    position: relative;
+    width: 100%;
+    margin-bottom: 100px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 2.5s;
+    overflow: hidden;
+    padding: 60px 20px;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.backgroundLayer {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url('/love/photo.png.webp');
+    background-repeat: repeat;
+    background-size: 150px;
+    transform: rotate(45deg);
+    z-index: 1;
+    opacity: 0.15;
+}
+
+.contentLayer {
+    position: relative;
+    z-index: 2;
+    background-color: var(--color);
+    color: var(--bgc);
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 60px 80px;
+    border-radius: 20px;
+}
+
+.ramka {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    object-fit: stretch;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.ramka img {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    margin-top: 0 !important;
+    margin-bottom: 30px !important;
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.paragraph {
+    line-height: 1.4;
+    max-width: 800px;
+}
+
+.heartIcon {
+    width: 60px;
+    height: auto;
+    animation: rotateHearts 3s ease-in-out infinite alternate;
+    filter: brightness(0) invert(1);
+}
+
+@keyframes rotateHearts {
+    from {
+        transform: rotate(-45deg);
+    }
+    to {
+        transform: rotate(45deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .wishes {
+        margin-bottom: 50px;
+        padding: 40px 10px;
+    }
+
+    .contentLayer {
+        padding: 30px 20px;
+    }
+
+    .paragraph {
+        font-size: 0.9rem;
+    }
+    
+    .heartIcon {
+        width: 40px;
+    }
+}

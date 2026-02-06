@@ -1,0 +1,64 @@
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 100px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 2.5s;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text {
+    max-width: 600px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.organizerInfo {
+    margin-top: 20px;
+}
+
+.phone {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.2rem;
+}
+
+.tgButton {
+    margin-top: 30px;
+    padding: 12px 24px;
+    border: 1px solid var(--color);
+    background: transparent;
+    color: var(--color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-family: "Pangolin", sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tgButton:hover {
+    background-color: var(--color);
+    color: var(--bgc);
+}
+
+@media (max-width: 768px) {
+    .contacts {
+        margin-bottom: 50px;
+        padding: 0 20px;
+    }
+
+    .text {
+        font-size: 0.9rem;
+    }
+
+    .phone {
+        font-size: 1.1rem;
+    }
+}
