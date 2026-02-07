@@ -11,10 +11,10 @@
 .heroCover {
     position: absolute;
     top: 0;
-    left: -250px;
+    left: -350px;
     object-fit: contain;
-    width: calc(100% + 500px);
-    height: 100%;
+    width: calc(100% + 700px);
+    height: 102%;
 }
 
 .heroCover img {
@@ -33,7 +33,7 @@
     height: auto;
     z-index: 10;
     margin-right: 100px;
-    filter: saturate(1.3);
+    filter: saturate(1.3) brightness(1.3);
 }
 
 @media (max-width: 768px) {

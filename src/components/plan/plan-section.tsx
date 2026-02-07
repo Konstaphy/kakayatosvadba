@@ -1,16 +1,9 @@
 import type { FC, ReactElement } from "react";
 import { PlanItem } from "./plan-item/plan-item.tsx";
-import { useIntersectionObserver } from "../../utils/use-intersection-observer.tsx";
-import styles from "./plan-section.module.css";
 
 export const PlanSection: FC = (): ReactElement => {
-  const { ref, isIntersecting } = useIntersectionObserver();
   return (
-    <section
-      id="plan"
-      ref={ref}
-      className={`${styles.plan} ${isIntersecting ? styles.visible : ""}`}
-    >
+    <section id="plan">
       <p className={"childish"}>План дня</p>
       <PlanItem
         text={["16:00", <br />, "Сбор гостей"]}

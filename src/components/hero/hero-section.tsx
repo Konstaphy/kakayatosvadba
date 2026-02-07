@@ -24,7 +24,7 @@ export const HeroSection: FC = (): ReactElement => {
         <p className={styles.heroDate}>15 | 05 | 26</p>
         <img className={styles.heroImage} alt={"zhenih"} src={"/zhenih.png"} />
         <div className={styles.heroCover}>
-          <img alt={"1"} src={"/ramka/ramka.png"} />
+          <img alt={"1"} src={"/ramka-2.png"} />
         </div>
       </section>
     </>

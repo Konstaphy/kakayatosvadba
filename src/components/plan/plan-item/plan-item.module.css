@@ -2,15 +2,9 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: 2.5s;
+
 }
 
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 .planItemIcons {
     display: flex;
@@ -23,11 +17,19 @@
 
 .planItemTitle {
     display: flex;
+    transition: 2.5s;
+    opacity: 0;
+    transform: translateY(100px);
     width: 70%;
     flex-direction: column;
     justify-content: flex-end;
     text-align: start;
     align-items: start;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {

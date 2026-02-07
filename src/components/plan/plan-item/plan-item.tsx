@@ -21,17 +21,17 @@ export const PlanItem: FC<TPlanItemProps> = ({
 }): ReactElement => {
   const { ref, isIntersecting } = useIntersectionObserver<HTMLDivElement>();
   return (
-    <div
-      className={`${styles.planItem} ${isIntersecting ? styles.visible : ""}`}
-      ref={ref}
-    >
+    <div className={`${styles.planItem}`}>
       <div className={styles.planItemIcons}>
         <IconCircle>
           <img src={icon} alt={icon} className={styles.iconImage} />
         </IconCircle>
         {!noDivider && <PlanDivider />}
       </div>
-      <div className={styles.planItemTitle}>
+      <div
+        className={`${styles.planItemTitle} ${isIntersecting ? styles.visible : ""}`}
+        ref={ref}
+      >
         <PlanTitle text={text} />
         <div className={styles.planItemDescription}>
           <PlanDescription text={description} />
