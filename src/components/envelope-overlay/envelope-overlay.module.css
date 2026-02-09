@@ -1,0 +1,97 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  transition: opacity 0.5s ease-out;
+}
+
+.overlayHidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-out 2.25s;
+}
+
+.envelopeWrapper {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: var(--color);
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.envelopeWrapper:hover {
+  transform: scale(1.05);
+}
+
+.envelopeWrapper.opened {
+  animation: flyOut 1s ease-in forwards 2.25s;
+}
+
+@keyframes flyOut {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  border-bottom: 1px solid #e0ddd0;
+  z-index: 2;
+  transition: transform 0.4s ease;
+  transform-origin: top;
+}
+
+.opened .flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.note {
+  position: absolute;
+  width: 80%;
+  height: 60%;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  transition: transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+.opened .note {
+  transform: translateY(-120px);
+}
+
+.envelopeBody {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color);
+  clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+  z-index: 2;
+}
