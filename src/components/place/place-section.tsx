@@ -12,6 +12,9 @@ export const PlaceSection: FC = (): ReactElement => {
     >
       <p className={"childish"}>Место проведения</p>
       Гостевой дом, СНТ Политехник, 138, Пермь
+      <br />
+      <br />
+      Место сбора: Мира 15 - ЗАГС Индустриального района
     </section>
   );
 };

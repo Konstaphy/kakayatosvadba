@@ -85,15 +85,6 @@ export const ComingFormSection: FC = (): ReactElement => {
               <input
                 type="checkbox"
                 name="drinks"
-                value="Красное вино"
-                className={styles.checkbox}
-              />
-              Красное вино
-            </label>
-            <label className={styles.checkboxLabel}>
-              <input
-                type="checkbox"
-                name="drinks"
                 value="Шампанское"
                 className={styles.checkbox}
               />
@@ -112,10 +103,10 @@ export const ComingFormSection: FC = (): ReactElement => {
               <input
                 type="checkbox"
                 name="drinks"
-                value="Коньяк"
+                value="Пиво"
                 className={styles.checkbox}
               />
-              Коньяк
+              Пиво
             </label>
             <label className={styles.checkboxLabel}>
               <input

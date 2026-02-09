@@ -24,17 +24,6 @@ export const WishesSection: FC = (): ReactElement => {
 
         <div className={styles.textBlock}>
           <p className={styles.paragraph}>
-            Наш праздник для взрослых. По возможности, оставьте детей под
-            присмотром и погрузитесь в мир романтики вместе с нами!
-          </p>
-
-          <img
-            src="/plan/3hearts.png"
-            alt="Hearts icon"
-            className={styles.heartIcon}
-          />
-
-          <p className={styles.paragraph}>
             Свои тёплые слова и пожелания приносите в сердцах, а подарки - в
             конверте.
           </p>
@@ -46,8 +35,9 @@ export const WishesSection: FC = (): ReactElement => {
           />
 
           <p className={styles.paragraph}>
-            Просим Вас не дарить нам цветы - сразу после свадьбы мы улетаем в
-            свадебное путешествие и не успеем насладиться их красотой.
+            Будем благодарны, если Вы воздержитесь от криков «Горько» на
+            празднике, ведь поцелуй - знак выражения чувств, он не может быть по
+            заказу.
           </p>
         </div>
       </div>
