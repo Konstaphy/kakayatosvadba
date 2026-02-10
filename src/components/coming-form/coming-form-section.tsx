@@ -1,6 +1,7 @@
 import type { FC, ReactElement } from "react";
 import styles from "./coming-form-section.module.css";
 import { useIntersectionObserver } from "../../utils/use-intersection-observer.tsx";
+import axios from "axios";
 
 export const ComingFormSection: FC = (): ReactElement => {
   const { ref, isIntersecting } = useIntersectionObserver({
@@ -15,6 +16,26 @@ export const ComingFormSection: FC = (): ReactElement => {
     // Поскольку drinks — это массив чекбоксов, FormData.entries() возьмет только последний или первый.
     // Нужно собрать все выбранные напитки вручную.
     const drinks = formData.getAll("drinks");
+    const fullData: any = { ...data, drinks };
+
+    const message = `
+        Новая анкета:
+        ФИО: ${fullData.fio}
+        Присутствие: ${fullData.attendance}
+        Напитки: ${fullData.drinks.join(", ") || "не выбрано"}
+        Трансфер: ${fullData.transfer}
+    `.trim();
+
+    axios
+      .post("https://kakayatosvadba-bot.vercel.app/api/send-message", {
+        message: message,
+      })
+      .then((response) => {
+        console.log("Данные анкеты успешно отправлены:", response.data);
+      })
+      .catch((error) => {
+        console.error("Ошибка при отправке данных анкеты:", error);
+      });
 
     console.log("Данные анкеты:", { ...data, drinks });
   };
