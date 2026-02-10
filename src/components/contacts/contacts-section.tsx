@@ -25,7 +25,7 @@ export const ContactSection: FC = (): ReactElement => {
       </div>
 
       <div className={styles.organizerInfo}>
-        Организатор-невеста:
+        Невеста:
         <span className={styles.phone}>{ORGANIZER_PHONE}</span>
       </div>
 
