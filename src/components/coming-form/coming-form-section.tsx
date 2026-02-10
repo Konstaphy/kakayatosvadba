@@ -9,6 +9,7 @@ export const ComingFormSection: FC = (): ReactElement => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,7 +33,7 @@ export const ComingFormSection: FC = (): ReactElement => {
         Напитки: ${fullData.drinks.join(", ") || "не выбрано"}
         Трансфер: ${fullData.transfer}
     `.trim();
-
+    setIsLoading(true);
     axios
       .post("https://kakayatosvadba-bot.vercel.app/api/send-message", {
         message: message,
@@ -44,7 +45,8 @@ export const ComingFormSection: FC = (): ReactElement => {
       .catch((error) => {
         setError("Ошибка при отправке данных анкеты");
         console.error("Ошибка при отправке данных анкеты:", error);
-      });
+      })
+      .finally(() => setIsLoading(false));
 
     console.log("Данные анкеты:", { ...data, drinks });
   };
@@ -177,8 +179,12 @@ export const ComingFormSection: FC = (): ReactElement => {
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         {!submitted ? (
-          <button type="submit" className={styles.submitButton}>
-            Отправить
+          <button
+            type="submit"
+            disabled={isLoading}
+            className={styles.submitButton}
+          >
+            {isLoading ? "Отправка..." : "Отправить"}
           </button>
         ) : (
           <p>Будем ждать вас!</p>
