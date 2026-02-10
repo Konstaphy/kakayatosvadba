@@ -168,7 +168,7 @@ export const ComingFormSection: FC = (): ReactElement => {
           </div>
         </div>
 
-        {submitted ? (
+        {!submitted ? (
           <button type="submit" className={styles.submitButton}>
             Отправить
           </button>
