@@ -1,4 +1,4 @@
-import type { FC, ReactElement } from "react";
+import { type FC, type ReactElement, useState } from "react";
 import styles from "./coming-form-section.module.css";
 import { useIntersectionObserver } from "../../utils/use-intersection-observer.tsx";
 import axios from "axios";
@@ -7,6 +7,8 @@ export const ComingFormSection: FC = (): ReactElement => {
   const { ref, isIntersecting } = useIntersectionObserver({
     triggerOnce: true,
   });
+
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,6 +34,7 @@ export const ComingFormSection: FC = (): ReactElement => {
       })
       .then((response) => {
         console.log("Данные анкеты успешно отправлены:", response.data);
+        setSubmitted(true);
       })
       .catch((error) => {
         console.error("Ошибка при отправке данных анкеты:", error);
@@ -165,9 +168,13 @@ export const ComingFormSection: FC = (): ReactElement => {
           </div>
         </div>
 
-        <button type="submit" className={styles.submitButton}>
-          Отправить
-        </button>
+        {submitted ? (
+          <button type="submit" className={styles.submitButton}>
+            Отправить
+          </button>
+        ) : (
+          <p>Будем ждать вас!</p>
+        )}
       </form>
     </section>
   );
