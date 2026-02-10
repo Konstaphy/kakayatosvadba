@@ -9,9 +9,11 @@ export const ComingFormSection: FC = (): ReactElement => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
@@ -19,7 +21,10 @@ export const ComingFormSection: FC = (): ReactElement => {
     // Нужно собрать все выбранные напитки вручную.
     const drinks = formData.getAll("drinks");
     const fullData: any = { ...data, drinks };
-
+    if (!fullData.transfer || !fullData.fio || !fullData.attendance) {
+      setError("Пожалуйста, заполните все поля");
+      return;
+    }
     const message = `
         Новая анкета:
         ФИО: ${fullData.fio}
@@ -37,6 +42,7 @@ export const ComingFormSection: FC = (): ReactElement => {
         setSubmitted(true);
       })
       .catch((error) => {
+        setError("Ошибка при отправке данных анкеты");
         console.error("Ошибка при отправке данных анкеты:", error);
       });
 
@@ -167,6 +173,8 @@ export const ComingFormSection: FC = (): ReactElement => {
             </label>
           </div>
         </div>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
         {!submitted ? (
           <button type="submit" className={styles.submitButton}>
